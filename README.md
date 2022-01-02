@@ -1,1 +1,1 @@
-I make cool retro games via TIC-80.
+I like to make retro and ASCII based games, along with general software development.
