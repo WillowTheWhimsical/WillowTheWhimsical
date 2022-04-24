@@ -1,1 +1,1 @@
-I like to make retro and ASCII based games, along with general software development.
+I like to make games and other general softare things.
