@@ -1,12 +1,6 @@
-" vim-plug
-call plug#begin()
-Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plug 'nvim-tree/nvim-tree.lua'
-call plug#end()
-
 " Saving the file
-:map <C-S> :w<Enter>
-:imap <C-S> <C-O>:w<Enter>
+:map <C-S> :noh \| w!<Enter>
+:imap <C-S> <C-O>:noh \| w!<Enter>
 
 " Closing the Tab
 :map <C-Q> :q!<Enter>:q!<Enter>
@@ -46,10 +40,22 @@ call plug#end()
 :map <A-2> 2gt
 :map <A-3> 3gt
 :map <A-4> 4gt
+:map <A-5> 5gt
+:map <A-6> 6gt
+:map <A-7> 7gt
+:map <A-8> 8gt
+:map <A-9> 9gt
+:map <A-0> 0gt
 :imap <A-1> <C-O>1gt
 :imap <A-2> <C-O>2gt
 :imap <A-3> <C-O>3gt
 :imap <A-4> <C-O>4gt
+:imap <A-5> <C-O>5gt
+:imap <A-6> <C-O>6gt
+:imap <A-7> <C-O>7gt
+:imap <A-8> <C-O>8gt
+:imap <A-9> <C-O>9gt
+:imap <A-0> <C-O>0gt
 
 " Access Terminal Anytime
 :map <A-`> :
@@ -64,7 +70,7 @@ call plug#end()
 :set shiftwidth=4
 :set mouse=a
 :set nu
-:set wrap
+:set nowrap
 :set clipboard=unnamedplus
 :colo gruvbox-material
 
