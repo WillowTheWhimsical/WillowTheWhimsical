@@ -1,6 +1,6 @@
 " Saving the file
-:map <C-S> :noh \| w!<Enter>
-:imap <C-S> <C-O>:noh \| w!<Enter>
+:map <C-S> :noh \| w<Enter>
+:imap <C-S> <C-O>:noh \| w<Enter>
 
 " Closing the Tab
 :map <C-Q> :q!<Enter>:q!<Enter>
