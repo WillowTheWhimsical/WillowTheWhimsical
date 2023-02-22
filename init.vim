@@ -1,10 +1,21 @@
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/highlight.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+call plug#end()
+
+" coc-clangd Keybinds
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
 " Saving the file
 :map <C-S> :noh \| w<Enter>
 :imap <C-S> <C-O>:noh \| w<Enter>
 
 " Closing the Tab
-:map <C-Q> :q!<Enter>:q!<Enter>
-:imap <C-Q> <Esc>:q!<Enter>:q!<Enter>
+:map <C-Q> :q!<Enter>
+:imap <C-Q> <Esc>:q!<Enter>
 
 " Opening New File
 :map <C-O> :e src/
@@ -30,9 +41,10 @@
 :imap <C-V> <C-O>p
 
 " Open New Tab
-:nmap <C-T> :tabnew<Enter>:8 vsplit<Enter>:view .<Enter><C-W>l<C-W>h<C-W>l
+:nmap <C-T> :tabnew<Enter>:NERDTree<Enter>:wincmd p<Enter>
 
 " Goto End of Line
+:imap <C-Left> <C-O>0
 :imap <C-Right> <Esc><S-A>
 
 " Switch Tab Focus
@@ -73,7 +85,18 @@
 :set nowrap
 :set clipboard=unnamedplus
 :colo gruvbox-material
+:let NERDTreeWinSize=20
 
-" Open File Explorer on the Left
-:8 vsplit
-:view .
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = "cpp",
+  highlight = { enable = true },
+  indent = { enable = true }
+}
+EOF
