@@ -1,8 +1,3 @@
-theme = "everforest_transparent"
-
-[keys.normal.space]
-";" = [":w", ":sh make && $exec"]
-
 [keys.normal]
 i = [":indent-style t", "insert_mode"]
 v = [":indent-style t", "select_mode"]
