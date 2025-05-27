@@ -1,1 +1,1 @@
-[](maxwell.gif)
+[](./maxwell.gif)
