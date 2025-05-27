@@ -1,1 +1,1 @@
-[](https://github.com/DinoNuggies7/DinoNuggies7/blob/main/maxwell.gif?raw=true)
+[](https://raw.githubusercontent.com/DinoNuggies7/DinoNuggies7/refs/heads/main/maxwell.gif)
